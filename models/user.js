@@ -15,12 +15,18 @@ var userSchema = new Schema({
   lastname: {
     type: String,
   },
-  admin: {
-    type: Boolean,
-    required: false,
-  },
   image: {
     type: String,
+  },
+  dashboardChips: {
+    $type: [
+      {
+        chips_id: {
+          type: mongoose.Types.ObjectId,
+          ref: "DashboardChips",
+        },
+      },
+    ],
   },
 });
 userSchema.plugin(passportLocalMongoose);

@@ -65,7 +65,6 @@ userRouter.post("/signup", upload.single("image"), (req, res, next) => {
         email: req.body.email,
         gender: req.body.gender,
         image: "http://localhost:3000/profilePictures/" + req.file.filename,
-        admin: false,
       }),
       req.body.password,
       (err, user) => {
